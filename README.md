@@ -1,15 +1,30 @@
-# ai-agents
+# 🚀 AI Agent for Figma-Powered App Development
 
-To install dependencies:
+This project is an AI-powered agent that fetches Figma design data via the Figma API and helps generate UI code automatically. The goal is to speed up app development by converting Figma designs into functional components.
 
-```bash
-bun install
-```
+---
 
-To run:
+## 📖 Features
+- Fetches Figma design files using the Figma API
+- Extracts UI components from Figma
+- Automates UI generation using AI
+- Supports `Bun` for fast execution
+- Uses `TypeScript` for type safety
 
-```bash
-bun run index.ts
-```
+---
 
-This project was created using `bun init` in bun v1.2.4. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## 🏗️ Tech Stack
+- **Bun** 🥖 (for fast JavaScript runtime)
+- **TypeScript** 🟦 (for better maintainability)
+- **Figma API** 🎨 (for design integration)
+- **dotenv** 🔑 (to manage API keys securely)
+- **Node.js or Bun package manager** 📦
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1️⃣ Clone the Repository  
+```sh
+git clone https://github.com/khushig8/Figma-to-Ui-.git
+cd Figma-to-Ui
