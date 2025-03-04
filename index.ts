@@ -1,25 +1,23 @@
-import "dotenv/config";
+import { fetchFigmaData } from "./fetchFigma";
+import { generateUI } from "./generateUI";
+import fs from "fs";
 
-const FIGMA_FILE_KEY = process.env.FIGMA_FILE_KEY;
-const FIGMA_API_KEY = process.env.FIGMA_API_KEY;
+async function main() {
+  try {
+    console.log("Fetching Figma data...");
+    const figmaData = await fetchFigmaData();
+    
+    // Save the data to figma.json
+    fs.writeFileSync("figma.json", JSON.stringify(figmaData, null, 2));
+    console.log("Figma data saved to figma.json");
 
-async function fetchFigmaData() {
-  if (!FIGMA_FILE_KEY || !FIGMA_API_KEY) {
-    console.error("Missing Figma API Key or File Key in .env");
-    return;
+    console.log("Generating Next.js UI...");
+    generateUI();
+    console.log("UI Generation completed!");
+
+  } catch (error) {
+    console.error("Error in main process:", error);
   }
-
-  const response = await fetch(
-    `https://api.figma.com/v1/files/${FIGMA_FILE_KEY}`,
-    {
-      headers: {
-        "X-Figma-Token": FIGMA_API_KEY!,
-      },
-    }
-  );
-
-  const data = await response.json();
-  console.log(JSON.stringify(data, null, 2));
 }
 
-fetchFigmaData();
+main();
